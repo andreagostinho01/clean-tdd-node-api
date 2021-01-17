@@ -14,14 +14,14 @@
     "prettier": "^2.2.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/andreagostinho01/clean-tdd-node-api.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "André Carlos Agostinho",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/andreagostinho01/clean-tdd-node-api/issues"
