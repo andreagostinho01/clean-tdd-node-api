@@ -20,7 +20,6 @@
     "type": "git",
     "url": "git+https://github.com/andreagostinho01/clean-tdd-node-api.git"
   },
-  "keywords": [],
   "author": "André Carlos Agostinho",
   "license": "ISC",
   "bugs": {
