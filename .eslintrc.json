@@ -1,15 +1,17 @@
 {
     "env": {
-        "commonjs": true,
         "es2021": true,
-        "node": true
+        "node": true,
+        "jest/globals": true
     },
     "extends": [
         "airbnb-base",
-        "prettier"
+        "prettier",
+        "plugin:jest/recommended"
     ],
     "plugins": [
-        "prettier"
+        "prettier",
+        "jest"
     ],
     "globals": {
         "Atomics": "readonly",
