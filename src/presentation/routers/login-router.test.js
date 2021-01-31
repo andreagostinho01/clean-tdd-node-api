@@ -1,6 +1,16 @@
+class MissingParamError extends Error {
+  constructor(paramName) {
+    super(`Missing param: ${paramName}`);
+    this.name = 'MissingParamError';
+  }
+}
+
 class HttpResponse {
-  static badRequest() {
-    return { statusCode: 400 };
+  static badRequest(paramName) {
+    return {
+      statusCode: 400,
+      body: new MissingParamError(paramName),
+    };
   }
 
   static serverError() {
@@ -14,7 +24,9 @@ class LoginRouter {
 
     const { email, password } = httpRequest.body;
 
-    if (!email || !password) return HttpResponse.badRequest();
+    if (!email) return HttpResponse.badRequest('email');
+    if (!password) return HttpResponse.badRequest('password');
+
     return true;
   }
 }
@@ -46,6 +58,12 @@ describe('Login Router', () => {
 
     const httpResponse = sut.route(httpRequest);
     expect(httpResponse.statusCode).toBe(400);
+
+    /* 
+      use toEqual to compare objects because it doesn't compare the pointers, 
+      only the values 
+    */
+    expect(httpResponse.body).toEqual(new MissingParamError('email'));
   });
 
   test('Should return 400 if no password is provided', () => {
@@ -59,5 +77,11 @@ describe('Login Router', () => {
 
     const httpResponse = sut.route(httpRequest);
     expect(httpResponse.statusCode).toBe(400);
+
+    /* 
+      use toEqual to compare objects because it doesn't compare the pointers, 
+      only the values 
+    */
+    expect(httpResponse.body).toEqual(new MissingParamError('password'));
   });
 });
