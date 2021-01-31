@@ -1,5 +1,5 @@
 class LoginRouter {
-  static route(httpRequest) {
+  route(httpRequest) {
     if (!httpRequest.body.email) return { statusCode: 400 };
     return true;
   }
@@ -7,7 +7,7 @@ class LoginRouter {
 
 describe('Login Router', () => {
   test('Should return 400 if no email is provided', () => {
-    const sut = LoginRouter;
+    const sut = new LoginRouter();
 
     const httpRequest = {
       body: {
