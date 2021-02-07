@@ -23,6 +23,7 @@
     "rules": {
         "prettier/prettier": "error",
         "class-methods-use-this": "off",
-        "max-classes-per-file": "off"
+        "max-classes-per-file": "off",
+        "no-console": "off"
     }
 }
