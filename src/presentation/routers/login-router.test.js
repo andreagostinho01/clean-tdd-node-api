@@ -4,7 +4,7 @@ const {
   InvalidParamError,
   ServerError,
   UnauthorizedError,
-} = require('../errors/index');
+} = require('../errors');
 
 const makeAuthUseCase = () => {
   class AuthUseCaseSpy {
