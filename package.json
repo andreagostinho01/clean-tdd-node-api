@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "NodeJS API with Clean Architecture and TDD",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "validator": "^13.5.2"
+  },
   "devDependencies": {
     "eslint": "^7.18.0",
     "eslint-config-airbnb-base": "^14.2.1",
@@ -17,6 +19,7 @@
   },
   "scripts": {
     "test": "jest",
+    "test:unit": "npm test -- --watch -c jest-unit-config.js",
     "test:ci": "jest --coverage"
   },
   "repository": {
